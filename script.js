@@ -2,13 +2,54 @@
 
 //create a function called generatePassword()
 // with promote window all user to enter 8 up to 128 characters and  alert message if criteria is not meet
+let chars = [
+  "!",
+  '"',
+  "#",
+  "$",
+  "%",
+  "&",
+  "'",
+  "(",
+  ")",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "[",
+  "\\",
+  "]",
+  "^",
+  "_",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
+let letter=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 var generatePassword = () => {
   let givenpassword = prompt("how characters you password contain ?");
-  let resultPwd
+  let resultPwd=''
   if (!isNaN(givenpassword) && givenpassword >= 8 && givenpassword <= 128) {
     resultPwd=makechars(givenpassword)
     if (window.confirm("click ok to include special character")) {
-    resultPwd=addSpecialCharacter(resultPwd)
+       resultPwd=addSpecialCharacter(resultPwd)
+       if(window.confirm('click ok to include numeric characters')){
+         resultPwd=resultPwd+Math.round(Math.random()*9)
+       }
+       else{
+        generatePassword();
+       }
   
     } else {
       generatePassword();
@@ -22,40 +63,7 @@ var generatePassword = () => {
 };
 //this function checks weather a string have a specal characters or not
 let addSpecialCharacter = (str) => {
-  let chars = [
-    "!",
-    '"',
-    "#",
-    "$",
-    "%",
-    "&",
-    "'",
-    "(",
-    ")",
-    "*",
-    "+",
-    ",",
-    "-",
-    ".",
-    "/",
-    ":",
-    ";",
-    "<",
-    "=",
-    ">",
-    "?",
-    "@",
-    "[",
-    "\\",
-    "]",
-    "^",
-    "_",
-    "`",
-    "{",
-    "|",
-    "}",
-    "~",
-  ];
+ 
 
   for (let i = 0; i < str.length; i++) {
     if (chars.includes(str[i])) {
