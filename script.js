@@ -4,7 +4,7 @@
 // with promote window all user to enter 8 up to 128 characters and  alert message if criteria is not meet
 var generatePassword = () => {
   let givenpassword = prompt("how characters you password contain ?");
-  let resultPwd
+  let resultPwd=''
   if (!isNaN(givenpassword) && givenpassword >= 8 && givenpassword <= 128) {
     resultPwd=makechars(givenpassword)
     if (window.confirm("click ok to include special character")) {
