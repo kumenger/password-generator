@@ -46,6 +46,12 @@ var generatePassword = () => {
        resultPwd=addSpecialCharacter(resultPwd)
        if(window.confirm('click ok to include numeric characters')){
          resultPwd=resultPwd+Math.round(Math.random()*9)
+         if(window.confirm('click ok to include lowerCase Characters')){
+          resultPwd=resultPwd+letter[Math.round(Math.random()*26)]
+          if(window.confirm('clik ok to add upperCase characters')){
+            resultPwd=resultPwd+letter[Math.round(Math.random()*26)].toUpperCase()
+          }
+         }
        }
        else{
         generatePassword();
