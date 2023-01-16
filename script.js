@@ -1,3 +1,5 @@
+
+
 //create a function called generatePassword()
 // with promote window all user to enter 8 up to 128 characters and  alert message if criteria is not meet
 var generatePassword = () => {
@@ -6,7 +8,7 @@ var generatePassword = () => {
   if (!isNaN(givenpassword) && givenpassword >= 8 && givenpassword <= 128) {
     resultPwd=makechars(givenpassword)
     if (window.confirm("click ok to include special character")) {
-      window.alert("add special character function");
+    resultPwd=addSpecialCharacter(resultPwd)
   
     } else {
       generatePassword();
@@ -57,11 +59,12 @@ let addSpecialCharacter = (str) => {
 
   for (let i = 0; i < str.length; i++) {
     if (chars.includes(str[i])) {
-      return true;
+      return str;
     }
+   
   }
-
-  return false;
+  let newstr=str+chars[Math.floor(Math.random()*chars.length)]
+  return newstr;
 };
 //function to add characters based on user give number
 const makechars=(numberOFChars)=>{
