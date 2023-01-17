@@ -2,7 +2,7 @@
 // with promote window all user to enter 8 up to 128 numbers and  alert message if criteria is not meet
 
 var generatePassword = () => {
-  let givenpassword = prompt("how characters you password contain ?");
+  let givenpassword = prompt("how many characters you password shoud  contain ?");
 
   let resultPwd = "";
   let radonnumber = Math.round(Math.random() * 9);
