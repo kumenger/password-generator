@@ -1,42 +1,53 @@
 // create a function called generatePassword()
 // with promote window all user to enter 8 up to 128 numbers and  alert message if criteria is not meet
-
 var generatePassword = () => {
   let givenpassword = prompt("how many characters you password shoud  contain ?");
-
+  var isValidatd=false
   let resultPwd = "";
   let radonnumber = Math.round(Math.random() * 9);
-
+  console.log(isValidatd)
   if (!isNaN(givenpassword) && givenpassword >= 8 && givenpassword <= 128) {
     if (window.confirm("click ok to include special character")) {
       let resultSpecia = addSpecialCharacter();
-
+     isValidatd=true
+     console.log(isValidatd)
       resultPwd = resultSpecia + resultPwd;
-      console.log(resultPwd);
+     
     }
 
     if (window.confirm("click ok to include numeric characters")) {
       resultPwd = resultPwd + radonnumber;
-
-      console.log(resultPwd);
+     isValidatd=true
+     console.log(isValidatd)
     }
 
     if (window.confirm("click ok to include lowerCase Characters")) {
+     
       resultPwd = resultPwd + letter[Math.round(Math.random() * 26)];
-      console.log(resultPwd);
+   
     }
 
     if (window.confirm("clik ok to add upperCase characters")) {
-      resultPwd =
-        resultPwd + letter[Math.round(Math.random() * 26)].toUpperCase();
-      console.log(resultPwd);
+      isValidatd=true
+      resultPwd = resultPwd + letter[Math.round(Math.random() * 26)].toUpperCase();
+      console.log(isValidatd)
+     
     }
   } else {
     window.alert("minimum 8 characters and enter numbers only");
   }
-  let finnaPassword = resultPwd + makechars(givenpassword - resultPwd.length);
-  return finnaPassword;
-};
+  resultPwd= resultPwd + makechars(givenpassword - resultPwd.length)
+
+ function checvalidation(){
+  resultPwd=''
+  window.alert('you must selcet at least one  upperCase,special character or numeric ')
+  return resultPwd
+ }
+  return isValidatd? resultPwd:checvalidation();
+ 
+  
+ 
+}
 // this function add special characters
 let addSpecialCharacter = () => {
   let newstr = chars[Math.floor(Math.random() * chars.length)];
